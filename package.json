@@ -1,0 +1,20 @@
+{
+  "name": "terraform-gcp-cloudrun-filestore",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "husky install",
+    "lint": "yamllint .github/workflows/*.{yaml,yml}"
+  },
+  "author": "Selva",
+  "license": "ISC",
+  "devDependencies": {
+    "husky": "^8.0.0"
+  },
+  "dependencies": {
+    "@commitlint/cli": "^17.7.2",
+    "@commitlint/config-conventional": "^17.7.0",
+    "yaml-lint": "^1.7.0"
+  }
+}
