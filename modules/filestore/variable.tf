@@ -43,11 +43,13 @@ variable tier {
 variable file_shares {
   type        = any
   description = "(Required) File system shares on the instance. For this version, only a single file share is supported"
+  default = []
 }
 
 variable network {
   type        = any
   description = "(Required) VPC networks to which the instance is connected. For this version, only a single network is supported"
+  default = []
 }
 
 variable "module_enabled" {

@@ -109,6 +109,7 @@ resource "google_cloud_run_v2_service" "default" {
 }
 
 resource "google_cloud_run_service_iam_binding" "default" {
+  count = var.module_enabled ? 1 : 0
   location = google_cloud_run_v2_service.default[0].location
   service  = google_cloud_run_v2_service.default[0].name
   project = google_cloud_run_v2_service.default[0].project
