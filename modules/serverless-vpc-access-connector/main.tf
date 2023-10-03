@@ -30,4 +30,5 @@ resource "google_vpc_access_connector" "connector" {
     create = try(var.module_timeouts.google_vpc_access_connector.create, "6m")
     delete = try(var.module_timeouts.google_vpc_access_connector.delete, "4m")
   }
+  depends_on = [var.module_depends_on]
 }

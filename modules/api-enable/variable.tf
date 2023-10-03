@@ -1,6 +1,7 @@
 variable api {
   type        = list
   description = "(Required) The name of the Google Platform project service."
+  default = []
 }
 
 variable disable_on_destroy {
@@ -11,7 +12,8 @@ variable disable_on_destroy {
 
 variable project {
   type        = string
-  description = "Optional) The project in which the resource belongs. If it is not provided, the provider project is used."
+  description = "(Optional) The project in which the resource belongs. If it is not provided, the provider project is used."
+  default = ""
 }
 
 variable "module_depends_on" {

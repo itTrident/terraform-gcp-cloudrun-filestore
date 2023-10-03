@@ -24,8 +24,8 @@ resource "google_cloud_run_v2_service" "default" {
     dynamic scaling {
       for_each = try(var.scaling_config, [])
       content {
-        min_instance_count = try(scaling.value.min_instance_count, null)
-        max_instance_count = try(scaling.value.max_instance_count, null)
+        min_instance_count = try(scaling.value.min_instance_count, 0)
+        max_instance_count = try(scaling.value.max_instance_count, 100)
       }
     }
     dynamic volumes {
@@ -109,6 +109,7 @@ resource "google_cloud_run_v2_service" "default" {
 }
 
 resource "google_cloud_run_service_iam_binding" "default" {
+  count = var.module_enabled ? 1 : 0
   location = google_cloud_run_v2_service.default[0].location
   service  = google_cloud_run_v2_service.default[0].name
   project = google_cloud_run_v2_service.default[0].project

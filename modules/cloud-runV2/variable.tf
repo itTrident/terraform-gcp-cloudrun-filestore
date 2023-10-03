@@ -28,7 +28,7 @@ variable ingress {
 }
 
 variable scaling_config {
-  type        = any
+  type        = list
   description = "(Optional) Scaling settings for this Revision"
   default = []
 }
@@ -52,18 +52,21 @@ variable "annotations" {
 }
 
 variable containers_temp {
-  type        = any
+  type        = list(any)
   description = "(Optional) Holds the containers that define the unit of execution for this Service."
+  default = [ ]
 }
 
 variable vpc_access {
   type        = any
   description = "(Optional) VPC Access configuration to use for this Task. For more information, visit https://cloud.google.com/run/docs/configuring/connecting-vpc."
+  default = []
 }
 
 variable volumes {
   type        = any
   description = "(Optional) A list of Volumes to make available to containers."
+  default = []
 }
 
 variable "module_enabled" {
