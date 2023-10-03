@@ -24,8 +24,8 @@ resource "google_cloud_run_v2_service" "default" {
     dynamic scaling {
       for_each = try(var.scaling_config, [])
       content {
-        min_instance_count = try(scaling.value.min_instance_count, null)
-        max_instance_count = try(scaling.value.max_instance_count, null)
+        min_instance_count = try(scaling.value.min_instance_count, 0)
+        max_instance_count = try(scaling.value.max_instance_count, 100)
       }
     }
     dynamic volumes {
