@@ -15,10 +15,10 @@
 ## Get Started:
   We can give the following varibales and values in [main.tf](./main.tf) file with respective modules.
 
-### API-Enale Module:
+### API-Enable Module:
 |`Varibales`|`Description`|`Default`|`Values` |
 |-----------| -----------| ---------|---------|
-|`api`|`(**Required**) The list of the name of the Google Platform project service.`||`list`|
+|`api`|`(Required) The list of the name of the Google Platform project service.`||`list`|
 |`disable_on_destroy`| `(Optional) If true, services that are enabled and which depend on this service should also be disabled when this service is destroyed`|`false`|`bool`|
 |`project`|`(Optional) The project in which the resource belongs. If it is not provided, the provider project is used.`||`string`|
 |`module_depends_on`|`(Optional) A list of external resources the module depends_on. Default is '[]'`||`list`|
