@@ -341,7 +341,7 @@
 
 - [**`module_enabled`**](#var-module_enabled): *(**Optional** `bool`)*<a name="var-module_enabled"></a>
 
-  Specifies whether resources in the module will be created.
+  Specifies whether resources in the module will be created. *note: this variable not for google_project_service*
 
   Default is `true`.
 
