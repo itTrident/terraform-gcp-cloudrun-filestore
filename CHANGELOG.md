@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/itTrident/terraform-gcp-cloudrun-filestore/compare/v1.1.0...v1.1.1) (2023-10-03)
+
+
+### Bug Fixes
+
+* correction the misspell ([7cfd846](https://github.com/itTrident/terraform-gcp-cloudrun-filestore/commit/7cfd846d4f6cd3e22d639bd9833509f57ddfe80d))
+
 # [1.1.0](https://github.com/itTrident/terraform-gcp-cloudrun-filestore/compare/v1.0.0...v1.1.0) (2023-10-03)
 
 
