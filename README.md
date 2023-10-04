@@ -403,7 +403,7 @@
 
   ## Build the Docker Image:
   - Once run the Terraform module it will setup the VPC connector, Filestore, and Cloud Run. Then, you get the filestore nfs mount ip with share file (like ip:/fileshare).
-  - Open the Dockerfile and add the following command alongwith the entrypoint or cmd " mount -o nolock FILESTORE_IP_ADDRESS:/FILE_SHARE_NAME MNT_DIR " (ex: like your CMD is "npm run start", you can add the mount command like this "CMD mount -o nolock $FILESTORE_IP_ADDRESS:/$FILE_SHARE_NAME $MNT_DIR && npm run start"
+  - Open the Dockerfile and add the following command alongwith the entrypoint or cmd " mount -o nolock FILESTORE_IP_ADDRESS:/FILE_SHARE_NAME MNT_DIR " (ex: like your CMD is "npm run start", you can add the mount command like this "CMD mount -o nolock $FILESTORE_IP_ADDRESS:/$FILE_SHARE_NAME $MNT_DIR && npm run start")
   - Afterware, Build the docker image and push it to GCP Artifact hub
   - Once push, replace that docker image link into the cloud run module and run again the terraform apply.
 *Note: When we tery to mount the filestore with cloudrun you have to choose the "Execution environment" is "
