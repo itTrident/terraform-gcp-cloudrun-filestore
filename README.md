@@ -24,7 +24,6 @@
 |`module_depends_on`|`(Optional) A list of external resources the module depends_on. Default is '[]'`||`list`|
 |`module_timeouts`|`(Optional) An Object that specifies how long certain operations (per resource type) are allowed to take before being considered to have failed.`||`map`|
 
-
 ### Cloud Run V2:
 
    * [**`name`**](#var-name): *(**Required**`sting`)*<a name="var-name"></a>
