@@ -4,3 +4,11 @@ output url {
   description = "description"
   depends_on  = []
 }
+
+output "self_link" {
+  value = module.serverless-vpc-access-connector.self_link
+}
+
+output "id" {
+  value = module.serverless-vpc-access-connector.connector.id
+}
