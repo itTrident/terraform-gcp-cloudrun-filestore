@@ -1,5 +1,6 @@
 locals {
   project_id = "${length(var.project_id) > 0 ? var.project_id : data.google_client_config.current.project}"
+  location     = "${length(var.location) > 0 ? var.location : data.google_client_config.current.region}"
 }
 
 resource "google_cloud_run_v2_service" "default" {
@@ -7,7 +8,7 @@ resource "google_cloud_run_v2_service" "default" {
   depends_on = [var.module_depends_on]
   name     = var.name
   project  = local.project_id
-  location = var.location
+  location = local.location
   ingress = var.ingress
 
   timeouts {
