@@ -6,6 +6,7 @@ variable name {
 variable location {
   type        = string
   description = "(Required) The location of the cloud run instance. eg us-central1."
+  default     = ""
 }
 
 variable project_id {
