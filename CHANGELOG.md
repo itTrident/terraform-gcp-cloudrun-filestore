@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/itTrident/terraform-gcp-cloudrun-filestore/compare/v1.1.3...v1.1.4) (2023-10-11)
+
+
+### Bug Fixes
+
+* update output.tf ([28e6442](https://github.com/itTrident/terraform-gcp-cloudrun-filestore/commit/28e6442d55bb2a09e1c2da4d4b7d218d7d3ae31b))
+
 ## [1.1.3](https://github.com/itTrident/terraform-gcp-cloudrun-filestore/compare/v1.1.2...v1.1.3) (2023-10-11)
 
 
