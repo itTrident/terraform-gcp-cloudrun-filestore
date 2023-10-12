@@ -7,14 +7,14 @@
 ## Modules:
    This module implements the following Terraform resources
    
-   * google_cloud_run_v2_service
-   * google_filestore_instance
-   * google_vpc_access_connector
+   * google_cloud_run_v2_service (module_name: cloud-runV2)
+   * google_filestore_instance  (module_name: filestore)
+   * google_vpc_access_connector (module_name: serverless-vpc-access-connector)
 
 _Note:_ 
   _While building the docker image you have to update the Dockerfile CMD like the following_
   ```docker
-  CMD echo "Mounting Cloud Filestore." && mount -o nolock $FILE_STORE_ENDPOINT /data && echo "Mounting completed." && <user application stating command>
+  CMD echo "Mounting Cloud Filestore." && mount -o nolock $FILE_STORE_ENDPOINT <target-dir> && echo "Mounting completed." && <application stating command>
   
   # $FILE_STORE_ENDPOINT => this variable value will get from the module output "module.filestore.nfs_mount_point"
   ```
