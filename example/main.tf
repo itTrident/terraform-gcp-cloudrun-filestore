@@ -1,12 +1,6 @@
 locals {
-vpc_access_connector = module.serverless-vpc-access-connector.self_link
-}
-
-
-module api-enable {
-  source = "../modules/api-enable"
-  api    = ["file.googleapis.com", "run.googleapis.com", "vpcaccess.googleapis.com"]
-  disable_on_destroy = false
+vpc_access_connector = join("", module.serverless-vpc-access-connector.self_link)
+nfs_mount_point  = module.filestore.nfs_mount_point
 }
 
 module filestore {
@@ -31,7 +25,7 @@ module "cloud-runV2" {
   source                     = "../modules/cloud-runV2"
   name                       = "nginx"
   execution_environment      = "EXECUTION_ENVIRONMENT_GEN2"
-  containers_temp            = [{ name = "nginx", image = "nginx:latest", env = [{ name = "test", value = "testing" }], value_source = [], ports = [{ container_port = 80 }], volume_mounts = [] }]
+  containers_temp            = [{ name = "plum", image = "nginx:latest", env = [{ name = "FILE_STORE_ENDPOINT", value = local.nfs_mount_point }], value_source = [], ports = [{ container_port = 80 }], volume_mounts = [] }]
   scaling_config             = [{ min_instance_count = 0, max_instance_count = 100 }]
   vpc_access                 = [{connector = local.vpc_access_connector, egress = "PRIVATE_RANGES_ONLY"}]
   ingress                    = "INGRESS_TRAFFIC_ALL"

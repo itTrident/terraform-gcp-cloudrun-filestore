@@ -8,21 +8,18 @@
    This module implements the following Terraform resources
    
    * google_cloud_run_v2_service
-   * google_project_service
    * google_filestore_instance
    * google_vpc_access_connector
 
 ## Get Started:
   We can give the following varibales and values in [main.tf](./main.tf) file with respective modules.
-
-### API-Enable Module:
-|`Varibales`|`Description`|`Default`|`Values` |
-|-----------| -----------| ---------|---------|
-|`api`|`(Required) The list of the name of the Google Platform project service.`||`list`|
-|`disable_on_destroy`| `(Optional) If true, services that are enabled and which depend on this service should also be disabled when this service is destroyed`|`false`|`bool`|
-|`project`|`(Optional) The project in which the resource belongs. If it is not provided, the provider project is used.`||`string`|
-|`module_depends_on`|`(Optional) A list of external resources the module depends_on. Default is '[]'`||`list`|
-|`module_timeouts`|`(Optional) An Object that specifies how long certain operations (per resource type) are allowed to take before being considered to have failed.`||`map`|
+  
+  _Note: While building the docker image you have to update the Dockerfile CMD like the following_
+  ```docker
+  CMD echo "Mounting Cloud Filestore." && mount -o nolock $FILE_STORE_ENDPOINT /data && echo "Mounting completed." && <user application stating command>
+  
+  # $FILE_STORE_ENDPOINT => this variable value will get from the module output "module.filestore.nfs_mount_point"
+  ```
 
 ### Cloud Run V2:
 
@@ -401,6 +398,19 @@
     null_resource.name
   ]
   ```
+
+### Module output:
+
+  - We can get the following output from the modules.
+      * google_cloud_run_v2_service
+         - URL:
+            - we can get the cloud run url (module.cloud-runV2.url)
+      * google_filestore_instance
+         - nfs-endpoint
+            - We can get the filestore endpoint (module.filestore.nfs_mount_point)
+      * google_vpc_access_connector
+         - Connector self_link
+            - We can get the serverless vpc access connector self_link(module.serverless-vpc-access-connector.self_link)
 
   ## Build the Docker Image:
   - Once run the Terraform module it will setup the VPC connector, Filestore, and Cloud Run. Then, you get the filestore nfs mount ip with share file (like ip:/fileshare).

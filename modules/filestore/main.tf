@@ -2,6 +2,8 @@ locals {
   project_id = "${length(var.project_id) > 0 ? var.project_id : data.google_client_config.current.project}"
   location     = "${length(var.location) > 0 ? var.location : data.google_client_config.current.region}"
   region     = var.tier == "ENTERPRISE" ? local.location : data.google_client_config.current.zone
+  file_share_ip      = google_filestore_instance.instance[*].networks.0.ip_addresses.0 
+  file_share_dir     = google_filestore_instance.instance[*].file_shares[0].name
 }
 
 resource "google_filestore_instance" "instance" {
