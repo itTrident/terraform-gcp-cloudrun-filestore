@@ -11,15 +11,16 @@
    * google_filestore_instance
    * google_vpc_access_connector
 
-## Get Started:
-  We can give the following varibales and values in [main.tf](./main.tf) file with respective modules.
-  
-  _Note: While building the docker image you have to update the Dockerfile CMD like the following_
+_Note:_ 
+  _While building the docker image you have to update the Dockerfile CMD like the following_
   ```docker
   CMD echo "Mounting Cloud Filestore." && mount -o nolock $FILE_STORE_ENDPOINT /data && echo "Mounting completed." && <user application stating command>
   
   # $FILE_STORE_ENDPOINT => this variable value will get from the module output "module.filestore.nfs_mount_point"
   ```
+
+## Get Started:
+  We can give the following variables and values in [main.tf](./main.tf) file with respective modules.
 
 ### Cloud Run V2:
 
