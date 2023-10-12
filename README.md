@@ -7,9 +7,9 @@
 ## Modules:
    This module implements the following Terraform resources
    
-   * google_cloud_run_v2_service
-   * google_filestore_instance
-   * google_vpc_access_connector
+   * google_cloud_run_v2_service (module_name: cloud-runV2)
+   * google_filestore_instance  (module_name: filestore)
+   * google_vpc_access_connector (module_name: serverless-vpc-access-connector)
 
 ## Get Started:
   We can give the following varibales and values in [main.tf](./main.tf) file with respective modules.
