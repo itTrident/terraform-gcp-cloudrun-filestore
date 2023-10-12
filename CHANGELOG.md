@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/itTrident/terraform-gcp-cloudrun-filestore/compare/v1.1.8...v1.2.0) (2023-10-12)
+
+
+### Features
+
+* update the tf module ([3e43eb5](https://github.com/itTrident/terraform-gcp-cloudrun-filestore/commit/3e43eb53a9dfe2d2f9f1a8db885c355d10a11e7d))
+
 ## [1.1.8](https://github.com/itTrident/terraform-gcp-cloudrun-filestore/compare/v1.1.7...v1.1.8) (2023-10-12)
 
 
